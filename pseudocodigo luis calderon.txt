@@ -1,0 +1,28 @@
+program for_simulating_signals_filtration
+// program intended to the simulation of signals filtrations using Gauss ecuation
+
+Start
+//declaring the variables
+    declare constant = AVERAGE <- 1000, DEVIATION <- 300, PERCENTAGE <- 0.3
+
+    
+    display"Ingrese la frecuencia de la señal: "
+    input frequency
+
+  if frequency <= 0 Then
+		Display "para realizar el filtrado de señales es necesario que la frecuencia sea mayor que 0."
+	else	
+       pa <- 0
+      for f =  0 to frequency then
+           result <- (1 / (DEVIATION * sqrt(2 * pi))) * exponencial(-(1/2) * ((f - AVERAGE) / DEVIATION)^2 )
+           pa <- a + result
+      end for
+
+          if pa > PERCENTAGE then
+           	display "La señal pasa el filtro."
+             
+                else
+                 display "La señal es bloqueada por el filtro."
+          end if
+  end if
+Stop
